@@ -169,14 +169,14 @@ public class RSAUtil {
         String privateKey = Base64.encodeBase64String(keyPair.getPrivate().getEncoded());
 
 
-        FileUtils.writeLines(new File("c:/"+RSAConstants.PUBLIC_KEY), Collections.singleton(publicKey),"UTF-8",false);
-        FileUtils.writeLines(new File("c:/"+RSAConstants.PRIVATE_KEY), Collections.singleton(privateKey),"UTF-8",false);
+//        FileUtils.writeLines(new File("c:/"+RSAConstants.PUBLIC_KEY), Collections.singleton(publicKey),"UTF-8",false);
+//        FileUtils.writeLines(new File("c:/"+RSAConstants.PRIVATE_KEY), Collections.singleton(privateKey),"UTF-8",false);
 
 
-//        String cont = "你好，中国";
-//        String enc = Base64.encodeBase64String(encryptByPublicKey(cont, publicKey));
-//        System.out.println(enc);
-//        System.out.println(new String(decryptByPrivateKey(enc, privateKey)));
+        String cont = "你好，中国";
+        String enc = PublicKeyUtil.getInstance().encrypt(cont);
+        System.out.println(enc);
+        System.out.println(new String(PrivateKeyUtil.getInstance().decrypt(enc)));
     }
 
 }

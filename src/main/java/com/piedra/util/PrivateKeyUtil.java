@@ -29,7 +29,7 @@ public class PrivateKeyUtil {
         }
     }
 
-    private PrivateKeyUtil getInstance() {
+    public static PrivateKeyUtil getInstance() {
         if (util != null) {
             return util;
         }
@@ -136,7 +136,7 @@ public class PrivateKeyUtil {
      * @param data  待解密数据
      * @return      返回解密后的字节数组
      */
-    private byte[] decrypt(String data) throws Exception {
+    public byte[] decrypt(String data) throws Exception {
         return decryptByPrivateKey(Base64.decodeBase64(data), privateKey);
     }
 }

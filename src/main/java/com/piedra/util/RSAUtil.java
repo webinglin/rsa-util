@@ -161,17 +161,26 @@ public class RSAUtil {
 //
 //
     public static void main(String[] args) throws Exception {
-        KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(RSAConstants.KEY_ALGORITHM);
-        keyPairGen.initialize(2048);
-        KeyPair keyPair = keyPairGen.generateKeyPair();
 
-        String publicKey = Base64.encodeBase64String(keyPair.getPublic().getEncoded());
-        String privateKey = Base64.encodeBase64String(keyPair.getPrivate().getEncoded());
+        /* ************************ 生成密钥对文件 BEGIN ******************************* */
 
+//        KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(RSAConstants.KEY_ALGORITHM);
+//        keyPairGen.initialize(1024);
+//        KeyPair keyPair = keyPairGen.generateKeyPair();
+//
+//        String publicKey = Base64.encodeBase64String(keyPair.getPublic().getEncoded());
+//        String privateKey = Base64.encodeBase64String(keyPair.getPrivate().getEncoded());
+//
+//        // TODO 对于不同的系统生成密钥对，一定要使用不同的系统标识。这样文件名才不会重复
+        /* syscode指定系统的编码，默认为RSA，还可以为 CK,KAKOU 等 */
+//        String sysCode = "RSA";
+        /* 这个文件是我们提供给接入系统的文件 */
+//        FileUtils.writeLines(new File("o:/RSA" + RSAConstants.PUBLIC_KEY), "UTF-8", Collections.singleton(publicKey), false);
+        /* 这两个公钥、私钥文件是我们系统保留的文件。位于resrouces/keypair/目录底下 */
+//        FileUtils.writeLines(new File("o:/" + sysCode + RSAConstants.PUBLIC_KEY), "UTF-8", Collections.singleton(publicKey), false);
+//        FileUtils.writeLines(new File("o:/" + sysCode + RSAConstants.PRIVATE_KEY), "UTF-8", Collections.singleton(privateKey), false);
 
-//        FileUtils.writeLines(new File("c:/"+RSAConstants.PUBLIC_KEY), Collections.singleton(publicKey),"UTF-8",false);
-//        FileUtils.writeLines(new File("c:/"+RSAConstants.PRIVATE_KEY), Collections.singleton(privateKey),"UTF-8",false);
-
+        /* ************************ 生成密钥对文件 END ******************************* */
 
         String cont = "你好，中国";
         String enc = PublicKeyUtil.getInstance().encrypt(cont);
